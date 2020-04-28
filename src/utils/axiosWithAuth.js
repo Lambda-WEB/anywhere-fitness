@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const baseURL = 'https://anywherefitness100.herokuapp.com'
+const baseURL = 'https://anywherefitness100.herokuapp.com/api'
 
 export const axiosWithAuth =( ) => {
     const token = JSON.parse(localStorage.getItem('token'));
