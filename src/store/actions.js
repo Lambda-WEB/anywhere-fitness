@@ -1,9 +1,10 @@
 // Actions master file
 
 // COMMON
-// export const app_login = 'app-login'
-// export const app_logout = 'app-logout'
-// export const app_fetching = 'app-fetching'
+export const app_update_apitoken = 'app-login'
+export const app_update_api = 'app-update-api'
+export const app_fetching = 'app-fetching'
+export const app_error = 'app-error'
 
 // ACCOUNT
 export const account_login = 'account-login'
