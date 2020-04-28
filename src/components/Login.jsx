@@ -58,14 +58,14 @@ export class Login extends Component {
                     
                     />
                     </div>
-                    <div className="role">
-                    <select value={this.state.credentials.role}>
+                   
+                    <select className="select-css" value={this.state.credentials.role}>
                       <option value="Student">Student</option>
                       <option value="Instructor">Instructor</option>
 
                     </select>
 
-                    </div>
+                    
                     <button>Login</button>
                 </form>
                 </div>
