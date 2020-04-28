@@ -1,5 +1,5 @@
 // Actions master file
-import api from "../utils/axiosWithAuth.js"
+import {axiosWithAuth}  from "../utils/axiosWithAuth.js"
 
 // COMMON
 export const app_update_apitoken = 'app-login'
@@ -29,7 +29,7 @@ export const add_class_failure = "add_class_failure";
 export function addClass() {
     return dispatch => {
         dispatch({type: add_class_start});
-        api()
+        axiosWithAuth()
         .post('/classes')
         .then(response => {
             dispatch({type: add_class_success, payload: response})
