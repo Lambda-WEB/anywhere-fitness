@@ -20,17 +20,17 @@ export class Login extends Component {
         });
     }
 
-    // login = e => {
-    //     e.preventDefault();
-    //     axiosWithAuth()
-    //     .post('/api/login', this.state.credentials)
-    //     .then(res => {
-    //         console.log(res.data)
-    //       localStorage.setItem('token', JSON.stringify(res.data.payload))
-    //       this.props.history.push('/protected');  
-    //     } )
-    //     .catch(err => console.log({ err }))
-    // }
+    login = e => {
+        e.preventDefault();
+        axiosWithAuth()
+        .post('/api/login', this.state.credentials)
+        .then(res => {
+            console.log(res.data)
+          localStorage.setItem('token', JSON.stringify(res.data.payload))
+          this.props.history.push('/protected');  
+        } )
+        .catch(err => console.log({ err }))
+    }
 
     render() {
         return (

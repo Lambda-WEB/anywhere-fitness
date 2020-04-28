@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom'
+import Login from './components/Login';
 
 // Components
 import Header from './components/Header';
@@ -35,7 +36,7 @@ function App() {
 
       <section>
         <Switch>
-          <Route exact path='/login'>
+          <Route exact path='/login' component={Login} >
           </Route>
           <Route exact path='/signup'>
           </Route>
