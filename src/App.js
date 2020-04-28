@@ -45,7 +45,7 @@ function App() {
           </Route>
           <Route path='/profile/edit'>
           </Route>
-          <Route path='/profile'>
+          <Route path='/profile'> 
           </Route>
           <Route path='/instructor/classes/edit/:id'>
           </Route>
