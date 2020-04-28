@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { logger } from 'redux-logger';
-import {thunk} from "redux-thunk"
+import thunk from "redux-thunk"
 
 import { accountReducer } from './store/accountReducer';
 import { instructorReducer } from './store/instructorReducer';

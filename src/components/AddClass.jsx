@@ -36,8 +36,8 @@ const AddClass = (props) => {
            <form onSubmit={handleSubmit}>
             <input type="text" name="name" placeholder="Class Name" onChange={handleInput}/>
             <input type="text" name="type" placeholder="Type of Class" onChange={handleInput}/>
-            <label htmlFor="start_time">Start Time</label>
-            <input type="time" name="start_time" onChange={handleInput} />
+            <label htmlFor="start_time">Start Time<span/>
+            <input type="time" name="start_time" onChange={handleInput} /></label>
             <input type="text" name="duration" placeholder="Duration of Class" onChange={handleInput}/>
             <input type="text" name="location" placeholder="Zip Code of Class location" onChange={handleInput}/>
             <input type="number" name="max_attendees" placeholder="Max Attendees" onChange={handleInput}/>
