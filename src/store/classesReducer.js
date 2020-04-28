@@ -2,7 +2,7 @@ import * as act from './actions'
 
 
 const initialClassesState = {
-    class:{
+    classadd:{
       name: '', // string
       type: '', // class_type
       start_time: '', // string (utc)
@@ -31,7 +31,7 @@ export function classesReducer(state = initialClassesState, action) {
       return {
         ...state,
         isLoading:false,
-        class: action.payload
+        classadd: action.payload
   };
     case act.add_class_failure:
       return{

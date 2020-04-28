@@ -26,11 +26,11 @@ export const add_class_start = "add_class_start";
 export const add_class_success = "add_class_success";
 export const add_class_failure = "add_class_failure";
 
-export function addClass() {
+export function addClass(classadd) {
     return dispatch => {
         dispatch({type: add_class_start});
         axiosWithAuth()
-        .post('/classes')
+        .post('/classes', classadd)
         .then(response => {
             dispatch({type: add_class_success, payload: response})
         })
