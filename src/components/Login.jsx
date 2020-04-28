@@ -34,10 +34,11 @@ export class Login extends Component {
 
     render() {
         return (
-            <div>
+            <div className="wrapper">
+                <div className="form-wrapper">
                 <form onSubmit={this.login}>
-                  <h5>Login</h5>
-                  <div>
+                  <h1>Login</h1>
+                  <div className="email">
                     <label>Email</label>
                     <input
                     type="text"
@@ -47,7 +48,7 @@ export class Login extends Component {
                     
                     />
                     </div>
-                    <div>
+                    <div className="password">
                       <label>password</label>
                     <input
                         type="password"
@@ -57,16 +58,17 @@ export class Login extends Component {
                     
                     />
                     </div>
-                    <div>
+                    <div className="role">
                     <select value={this.state.credentials.role}>
                       <option value="Student">Student</option>
                       <option value="Instructor">Instructor</option>
 
                     </select>
+
                     </div>
                     <button>Login</button>
                 </form>
-                
+                </div>
             </div>
         )
     }
