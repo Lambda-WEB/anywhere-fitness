@@ -5,7 +5,7 @@ const initialClassesState = {
 
 }
 
-export function classesReducer(state, action) {
+export function classesReducer(state = initialClassesState, action) {
 
   switch (action.type) {
 

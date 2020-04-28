@@ -1,12 +1,11 @@
 import * as act from './actions'
 
 
-
 const initialInstructorState = {
 
 }
 
-export function instructorReducer(state, action) {
+export function instructorReducer(state = initialInstructorState, action) {
 
   switch (action.type) {
 
