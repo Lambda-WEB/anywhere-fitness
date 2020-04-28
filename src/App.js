@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom'
 import Login from './components/Login';
 
+
 // Components
 import Header from './components/Header';
+import InstrClass from "./components/InstrClass";
 import AddClass from "./components/AddClass"
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -51,7 +53,7 @@ function App() {
           </Route>
           <Route path='/instructor/classes/new' component={AddClass}>
           </Route>
-          <Route path='/instructor/classes'>
+          <Route path='/instructor/classes' component={InstrClass}>
           </Route>
 
         </Switch>
