@@ -12,6 +12,7 @@ import { classesReducer } from './store/classesReducer';
 import App from './App';
 
 import './styles/style.scss';
+import { Provider } from 'react-redux';
 
 
 const rootReducer = combineReducers({
@@ -24,9 +25,11 @@ const store = createStore(rootReducer, applyMiddleware(logger));
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

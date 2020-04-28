@@ -35,6 +35,12 @@ export function accountReducer(state = initialAccountState, action) {
         isFetching: action.payload
       }
 
+    case act.account_set_token:
+      return {
+        ...state,
+        authToken: action.payload
+      }
+  
     case act.account_login:
       return {
         ...state,

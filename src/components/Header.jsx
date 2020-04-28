@@ -22,7 +22,7 @@ export default function Header(props) {
             <Link to='/classes'>Find Classes</Link>
           </li>
           <li>
-            <Link to='/login'>Login</Link>
+            {props.loggedIn ? (<Link to='/logout'>Logout</Link>) : (<Link to='/login'>Login</Link>)}
           </li>
         </ul>
       </nav>

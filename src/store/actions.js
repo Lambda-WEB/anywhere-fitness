@@ -9,6 +9,7 @@
 export const account_login = 'account-login'
 export const account_logout = 'account-logout'
 export const account_fetching = 'account-fetching'
+export const account_set_token = 'account-set-token'
 // export function account_fetching(isFetching) {
 //   return { action: account_fetching, payload: isFetching }
 // }
