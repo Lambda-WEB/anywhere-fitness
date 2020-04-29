@@ -1,6 +1,9 @@
 // master file
+// Third-party styles
+@import "~bootstrap/scss/bootstrap";
+// General styles
 @import "./index.scss";
-
+// Component styles
 @import "./App.scss";
 @import "./Header.scss";
 @import "./Login.scss";

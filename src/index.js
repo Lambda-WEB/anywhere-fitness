@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
 import { createLogger } from 'redux-logger';
 import thunk from "redux-thunk"
-
+// Redux Reducers
 import { appReducer } from './store/appReducer'
 import { accountReducer } from './store/accountReducer';
 import { instructorReducer } from './store/instructorReducer';
@@ -14,7 +14,6 @@ import { classesReducer } from './store/classesReducer';
 import App from './App';
 
 import './styles/style.scss';
-import { Provider } from 'react-redux';
 
 const logger = createLogger();
 const rootReducer = combineReducers({

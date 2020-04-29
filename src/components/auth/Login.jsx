@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 
 const defaultUser = {
     email: '',
     password: '',
-    instructor: "0"
-  }
+}
 
-export default function Login () {
+export default function Login() {
     const api = useSelector(state => state.app.axios);
     const [user, setUser] = useState(defaultUser);
     const history = useHistory();
@@ -22,7 +20,7 @@ export default function Login () {
         });
     }
 
-    const login = e => {
+    const loginHandler = e => {
         e.preventDefault();
         console.log({ user });
         api.post('/auth/login', user)
@@ -30,8 +28,8 @@ export default function Login () {
                 console.log(res.data)
                 localStorage.setItem('authToken', JSON.stringify(res.data.token))
                 dispatch({ type: 'APP_LOGIN', payload: res.data.token })
-                dispatch({ type: 'ACCOUNT_UPDATE', payload: { user: res.data.saved } })
-                history.push('/');
+                dispatch({ type: 'ACCOUNT_UPDATE', payload: { user: { id: res.data.id, instructor: res.data.instructor } } })
+                history.push('/dashboard');
             })
             .catch(err => console.log({ err }))
     }
@@ -40,7 +38,7 @@ export default function Login () {
     return (
         <div className="wrapper">
             <div className="form-wrapper">
-                <form onSubmit={login}>
+                <form onSubmit={loginHandler}>
                     <h1>Login</h1>
                     <div className="email">
                         <label>Email</label>
@@ -62,13 +60,6 @@ export default function Login () {
 
                         />
                     </div>
-                   
-                    <select className="select-css" value={user.instructor} onChange={changeHandler}>
-                      <option value="0">Student</option>
-                      <option value="1">Instructor</option>
-
-                    </select>
-
 
                     <button>Login</button>
                 </form>
