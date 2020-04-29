@@ -2,6 +2,8 @@ import * as act from './actions'
 
 
 const initialInstructorState = {
+  classes: [],
+  
 
 }
 
