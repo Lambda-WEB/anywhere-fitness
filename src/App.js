@@ -61,6 +61,8 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path='/profile'>
           </PrivateRoute>
+          <PrivateRoute path='/dashboard'>
+          </PrivateRoute>
 
           <PrivateRoute path='/classes' component={ClassesList}>
           </PrivateRoute>
