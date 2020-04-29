@@ -23,7 +23,7 @@ export class Login extends Component {
     login = e => {
         e.preventDefault();
         axiosWithAuth()
-        .post('/api/login', this.state.credentials)
+        .post('/auth/login', this.state.credentials)
         .then(res => {
             console.log(res.data)
           localStorage.setItem('token', JSON.stringify(res.data.payload))
@@ -59,9 +59,9 @@ export class Login extends Component {
                     />
                     </div>
                    
-                    <select className="select-css" value={this.state.credentials.role}>
-                      <option value="Student">Student</option>
-                      <option value="Instructor">Instructor</option>
+                    <select name="role" className="select-css" value={this.state.credentials.role} onChange={this.changeHandler}>
+                      <option value="false">Student</option>
+                      <option value="true">Instructor</option>
 
                     </select>
 

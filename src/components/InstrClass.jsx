@@ -4,10 +4,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {getClass} from "../store/actions.js";
 
 const InstrClass = (props) => {
-    const [classes, setClasses] = useState
+    const dispatch = useDispatch();
+    const classes = useSelector(state => state.classes)
+    console.log(classes)
 
     useEffect(() => {
-        
+        dispatch({type: getClass})
     })
 
     return(
