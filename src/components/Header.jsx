@@ -16,7 +16,7 @@ export default function Header() {
         </div>
       </Link>
       <div className="header-section">
-        <span className="header-title"><strong>Anywhere Fitness</strong></span>
+        <span className="header-title"><strong>anywhere(Fitness)</strong></span>
       </div>
       <nav className='header-section'>
         <ul>
