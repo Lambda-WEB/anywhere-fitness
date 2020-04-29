@@ -4,9 +4,9 @@ export default function ClassCard() {
   const [fitClass, setFitClass] = useState();
 
   return (
-    <div className='card text-right'>
+    <div className='card text-center shadow'>
       <div className="overflow">
-        <img src='' alt='' />
+        <img src='' alt='' className='card-img-top' />
       </div>
       <div className="card-body text-dark">
         <h4 className="card-title">Yoga Class</h4>
