@@ -2,6 +2,7 @@ import * as act from './actions'
 
 
 const initialClassesState = {
+    classes: [],
     class:{
       name: '', // string
       type: '', // class_type
@@ -12,10 +13,7 @@ const initialClassesState = {
       attendees: '', // number (calculated)
       max_attendees: '', // number (specified by Instructor)
     },
-    loggedIn: false,
-    authToken: null,
     isLoading: false
-  
   }
 
 
