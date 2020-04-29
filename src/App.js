@@ -5,6 +5,7 @@ import Signup from './components/Signup'
 
 // Components
 import Header from './components/Header';
+import AddClass from "./components/AddClass"
 import { useSelector, useDispatch } from 'react-redux';
 
 // import * as act from './store/actions'
@@ -54,7 +55,7 @@ function App() {
           </Route>
           <Route path='/instructor/classes/edit/:id'>
           </Route>
-          <Route path='/instructor/classes/new'>
+          <Route path='/instructor/classes/new' component={AddClass}>
           </Route>
           <Route path='/instructor/classes'>
           </Route>

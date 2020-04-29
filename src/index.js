@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { BrowserRouter } from 'react-router-dom'
-import { createStore, applyMiddleware, combineReducers } from 'redux'
-import { createLogger } from 'redux-logger'
+import { BrowserRouter } from 'react-router-dom';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { createLogger } from 'redux-logger';
+import thunk from "redux-thunk"
 
 import { appReducer } from './store/appReducer'
 import { accountReducer } from './store/accountReducer';
@@ -23,7 +24,7 @@ const rootReducer = combineReducers({
   classes: classesReducer
 })
 
-const store = createStore(rootReducer, applyMiddleware(logger));
+const store = createStore(rootReducer, applyMiddleware(logger, thunk));
 
 ReactDOM.render(
   <React.StrictMode>
