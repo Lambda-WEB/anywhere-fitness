@@ -1,59 +1,73 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom'
-import Login from './components/Login';
+import { useSelector, useDispatch } from 'react-redux';
 
 
 // Components
 import Header from './components/Header';
-import InstrClass from "./components/InstrClass";
-import AddClass from "./components/AddClass"
-import { useSelector, useDispatch } from 'react-redux';
+import Signup from './components/auth/Signup'
+import Login from './components/auth/Login';
+import Logout from './components/auth/Logout';
+import AddClass from "./components/instructor/AddClass"
+import Home from './components/Home';
+import ClassesList from './components/ClassesList';
+import InstructorRoute from './routes/InstructorRoute';
+import PrivateRoute from './routes/PrivateRoute'
 
-import * as act from './store/actions'
+// import * as act from './store/actions'
+// import newAxios from './utils/axiosUtils';
 
 function App() {
-  const loggedIn = useSelector(state => state.account.loggedIn);
-  const authToken = useSelector(state => state.account.authToken);
+  // app state, account state
+  // const [authToken, setAuthToken] = useState();
+  // const authToken = useSelector(state => state.app.authToken);
+  const api = useSelector(state => state.app.axios);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     // load token from localstorage
-    // send get request for account data with token
-    const token = authToken || localStorage.getItem('authToken')
+    const token = localStorage.getItem('authToken')
     if (token) {
-      // ping api with token to verify it
-      // set token value in state, loggedIn to true
-      dispatch({type: act.account_set_token, payload: token})
+      dispatch({type: "APP_LOGIN", payload: JSON.parse(token)})
+      // ping api with token to verify
+      // if it fails, call logout, delete localstorage item, do not redirect
+      // call get/user to populate state with always-visible/needed app data (username, name, email, role)
+      // api.post('/auth/login')
     }
     else {
-      dispatch({type: act.account_logout})
+      dispatch({type: "APP_LOGOUT"})
     }
-
   }, [])
-
-
 
   return (
     <div className="App">
-      <Header loggedIn={loggedIn} />
+      <Header />
 
       <section>
         <Switch>
-          <Route exact path='/login' component={Login} >
+          <Route path='/login' component={Login} >
           </Route>
-          <Route exact path='/signup'>
+          <Route path='/signup' component={Signup}>
           </Route>
-          <Route path='/classes'>
+
+          <InstructorRoute path='/instructor/classes/edit/:id'>
+          </InstructorRoute>
+          <InstructorRoute path='/instructor/classes/new' component={AddClass}>
+          </InstructorRoute>
+          <InstructorRoute path='/instructor/classes'>
+          </InstructorRoute>
+
+          <PrivateRoute path='/profile/edit'>
+          </PrivateRoute>
+          <PrivateRoute path='/profile'>
+          </PrivateRoute>
+
+          <PrivateRoute path='/classes' component={ClassesList}>
+          </PrivateRoute>
+          <Route path='/logout' component={Logout} >
           </Route>
-          <Route path='/profile/edit'>
-          </Route>
-          <Route path='/profile'> 
-          </Route>
-          <Route path='/instructor/classes/edit/:id'>
-          </Route>
-          <Route path='/instructor/classes/new' component={AddClass}>
-          </Route>
-          <Route path='/instructor/classes' component={InstrClass}>
+          <Route path='/' component={Home}>
           </Route>
 
         </Switch>

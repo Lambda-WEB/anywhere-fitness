@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
-import {addClass} from "../store/actions.js";
+import {addClass} from "../../store/actions.js";
 
 const AddClass = () => {
     const dispatch = useDispatch();
