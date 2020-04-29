@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
-import {getClass} from "../store/actions.js";
+import {getClass} from "../../store/actions.js";
 
 const InstrClass = (props) => {
     const dispatch = useDispatch();
