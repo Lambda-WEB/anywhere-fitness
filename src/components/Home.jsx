@@ -7,10 +7,10 @@ export default function Home() {
       <h2>
         Home page
       </h2>
-      <p>
-        <h3>
+      <h3>
           Link Tests
         </h3>
+      <p>
         <Link to='/instructor/classes/new'>Instructor > Create Class</Link>
       </p>
     </div>
