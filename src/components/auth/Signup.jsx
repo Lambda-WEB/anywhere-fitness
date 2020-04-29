@@ -61,7 +61,7 @@ export default function Signup() {
             />
           </div>
 
-          <select className="select-css" value={user.instructor} onChange={changeHandler}>
+          <select className="select-css" name="instructor" value={user.instructor} onChange={changeHandler}>
             <option value="0">Student</option>
             <option value="1">Instructor</option>
           </select>
