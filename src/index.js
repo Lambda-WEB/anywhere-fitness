@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 
 import { BrowserRouter } from 'react-router-dom'
 import { createStore, applyMiddleware, combineReducers } from 'redux'
-import { logger } from 'redux-logger'
+import { createLogger } from 'redux-logger'
 
+import { appReducer } from './store/appReducer'
 import { accountReducer } from './store/accountReducer';
 import { instructorReducer } from './store/instructorReducer';
 import { classesReducer } from './store/classesReducer';
@@ -14,8 +15,9 @@ import App from './App';
 import './styles/style.scss';
 import { Provider } from 'react-redux';
 
-
+const logger = createLogger();
 const rootReducer = combineReducers({
+  app: appReducer,
   account: accountReducer, 
   instructor: instructorReducer, 
   classes: classesReducer
