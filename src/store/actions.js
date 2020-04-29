@@ -38,9 +38,3 @@ export function addClass(classadd) {
         })
     }
 }
-
-
-
-
-
-
