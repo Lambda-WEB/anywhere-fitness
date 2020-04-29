@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 
 
 export class Login extends Component {
@@ -7,7 +7,8 @@ export class Login extends Component {
         credentials:{
             email: '',
             password: '',
-            role: ""
+            Isinstructor: '0'
+           
         }
     }
 
@@ -17,27 +18,30 @@ export class Login extends Component {
                 ...this.state.credentials,
                 [e.target.name]: e.target.value
             }
+            
         });
+        console.log(e.target.value)
     }
 
-    // login = e => {
-    //     e.preventDefault();
-    //     axiosWithAuth()
-    //     .post('/api/login', this.state.credentials)
-    //     .then(res => {
-    //         console.log(res.data)
-    //       localStorage.setItem('token', JSON.stringify(res.data.payload))
-    //       this.props.history.push('/protected');  
-    //     } )
-    //     .catch(err => console.log({ err }))
-    // }
+    login = e => {
+        e.preventDefault();
+        axiosWithAuth()
+        .post('/auth/login', this.state.credentials)
+        .then(res => {
+            console.log(res.data)
+          localStorage.setItem('token', JSON.stringify(res.data.payload))
+          this.props.history.push('/protected');  
+        } )
+        .catch(err => console.log({ err }))
+    }
 
     render() {
         return (
-            <div>
+            <div className="wrapper">
+                <div className="form-wrapper">
                 <form onSubmit={this.login}>
-                  <h5>Login</h5>
-                  <div>
+                  <h1>Login</h1>
+                  <div className="email">
                     <label>Email</label>
                     <input
                     type="text"
@@ -47,7 +51,7 @@ export class Login extends Component {
                     
                     />
                     </div>
-                    <div>
+                    <div className="password">
                       <label>password</label>
                     <input
                         type="password"
@@ -57,16 +61,17 @@ export class Login extends Component {
                     
                     />
                     </div>
-                    <div>
-                    <select value={this.state.credentials.role}>
-                      <option value="Student">Student</option>
-                      <option value="Instructor">Instructor</option>
+                   
+                    <select className="select-css" value={this.state.credentials.Isinstructor} onChange={this.changeHandler}>
+                      <option value="0">Student</option>
+                      <option value="1">Instructor</option>
 
                     </select>
-                    </div>
+
+                    
                     <button>Login</button>
                 </form>
-                
+                </div>
             </div>
         )
     }
