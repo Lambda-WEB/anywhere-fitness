@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 import AddClass from "./components/instructor/AddClass"
 import Home from './components/Home';
+import ClassesList from './components/ClassesList';
 
 // import * as act from './store/actions'
 // import newAxios from './utils/axiosUtils';
@@ -42,21 +43,24 @@ function App() {
 
       <section>
         <Switch>
-          <Route exact path='/login' component={Login} >
+          <Route path='/login' component={Login} >
           </Route>
-          <Route exact path='/signup' component={Signup}>
+          <Route path='/signup' component={Signup}>
           </Route>
-          <Route path='/classes'>
-          </Route>
-          <Route path='/profile/edit'>
-          </Route>
-          <Route path='/profile'>
-          </Route>
+
           <Route path='/instructor/classes/edit/:id'>
           </Route>
           <Route path='/instructor/classes/new' component={AddClass}>
           </Route>
           <Route path='/instructor/classes'>
+          </Route>
+
+          <Route path='/profile/edit'>
+          </Route>
+          <Route path='/profile'>
+          </Route>
+
+          <Route path='/classes' component={ClassesList}>
           </Route>
           <Route path='/logout' component={Logout} >
           </Route>
