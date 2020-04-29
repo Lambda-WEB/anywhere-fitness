@@ -10,6 +10,8 @@ import Logout from './components/Logout';
 import AddClass from "./components/instructor/AddClass"
 import Home from './components/Home';
 import ClassesList from './components/ClassesList';
+import InstructorRoute from './routes/InstructorRoute';
+import PrivateRoute from './routes/PrivateRoute'
 
 // import * as act from './store/actions'
 // import newAxios from './utils/axiosUtils';
@@ -48,20 +50,20 @@ function App() {
           <Route path='/signup' component={Signup}>
           </Route>
 
-          <Route path='/instructor/classes/edit/:id'>
-          </Route>
-          <Route path='/instructor/classes/new' component={AddClass}>
-          </Route>
-          <Route path='/instructor/classes'>
-          </Route>
+          <InstructorRoute path='/instructor/classes/edit/:id'>
+          </InstructorRoute>
+          <InstructorRoute path='/instructor/classes/new' component={AddClass}>
+          </InstructorRoute>
+          <InstructorRoute path='/instructor/classes'>
+          </InstructorRoute>
 
-          <Route path='/profile/edit'>
-          </Route>
-          <Route path='/profile'>
-          </Route>
+          <PrivateRoute path='/profile/edit'>
+          </PrivateRoute>
+          <PrivateRoute path='/profile'>
+          </PrivateRoute>
 
-          <Route path='/classes' component={ClassesList}>
-          </Route>
+          <PrivateRoute path='/classes' component={ClassesList}>
+          </PrivateRoute>
           <Route path='/logout' component={Logout} >
           </Route>
           <Route path='/' component={Home}>

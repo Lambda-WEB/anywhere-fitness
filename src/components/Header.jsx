@@ -21,7 +21,7 @@ export default function Header() {
       <nav className='header-section'>
         <ul>
           <li>
-            <Link to='/classes'>Find Classes</Link>
+            <Link to='/classes'>Classes</Link>
           </li>
           {loggedIn ? (
             <li>
