@@ -25,6 +25,7 @@ export default function Signup() {
 
   function submitHandler(e) {
     e.preventDefault();
+    console.log({user});
     api.post('/auth/register', user)  // fixedUser
       .then(res => {
         console.log(res.data)
