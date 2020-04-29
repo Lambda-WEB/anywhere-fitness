@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { axiosWithAuth } from '../../utils/axiosWithAuth';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 
@@ -7,9 +7,9 @@ const defaultUser = {
     email: '',
     password: '',
     instructor: "0"
-}
+  }
 
-export default function Login() {
+function Login () {
     const api = useSelector(state => state.app.axios);
     const [user, setUser] = useState(defaultUser);
     const history = useHistory();
@@ -62,10 +62,10 @@ export default function Login() {
 
                         />
                     </div>
-
-                    <select className="select-css" value={user.instructor} onChange={this.changeHandler}>
-                        <option value="0">Student</option>
-                        <option value="1">Instructor</option>
+                   
+                    <select className="select-css" value={user.instructor} onChange={changeHandler}>
+                      <option value="0">Student</option>
+                      <option value="1">Instructor</option>
 
                     </select>
 
