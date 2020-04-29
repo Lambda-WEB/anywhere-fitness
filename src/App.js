@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom'
-import Login from './components/Login';
-import Signup from './components/Signup'
+import { useSelector, useDispatch } from 'react-redux';
 
 // Components
 import Header from './components/Header';
-import AddClass from "./components/AddClass"
-import { useSelector, useDispatch } from 'react-redux';
+import Signup from './components/Signup'
+import Login from './components/Login';
+import Logout from './components/Logout';
+import AddClass from "./components/instructor/AddClass"
+import Home from './components/Home';
 
 // import * as act from './store/actions'
-import newAxios from './utils/axiosUtils';
-import Logout from './components/Logout';
+// import newAxios from './utils/axiosUtils';
 
 function App() {
   // app state, account state
@@ -34,8 +35,6 @@ function App() {
       dispatch({type: "APP_LOGOUT"})
     }
   }, [])
-
-  // component=Home
 
   return (
     <div className="App">
@@ -61,7 +60,7 @@ function App() {
           </Route>
           <Route path='/logout' component={Logout} >
           </Route>
-          <Route path='/' >
+          <Route path='/' component={Home}>
           </Route>
 
         </Switch>
