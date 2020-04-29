@@ -7,7 +7,7 @@ export class Login extends Component {
         credentials:{
             email: '',
             password: '',
-            Isinstructor: ''
+            Isinstructor: '0'
            
         }
     }
@@ -63,8 +63,8 @@ export class Login extends Component {
                     </div>
                    
                     <select className="select-css" value={this.state.credentials.Isinstructor} onChange={this.changeHandler}>
-                      <option value="Student">Student</option>
-                      <option value="Instructor">Instructor</option>
+                      <option value="0">Student</option>
+                      <option value="1">Instructor</option>
 
                     </select>
 
