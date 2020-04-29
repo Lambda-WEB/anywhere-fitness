@@ -8,9 +8,10 @@ const InstructorRoute = ({ component: Component, ...rest})=> {
    
     return (
         <Route {...rest} render={props => {
-          console.log('logged:',loggedIn,', instructor:',isInstructor)
+          console.log({'logged': loggedIn,'instructor': isInstructor})
           if (loggedIn) {
-            if (isInstructor) {
+            if (isInstructor == true) {
+              // console.log(isInstructor, 'why are we here???')
               return <Component {...props} />
             } else {
               return (
