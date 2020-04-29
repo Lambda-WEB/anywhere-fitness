@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ClassCard from './ClassCard'
+import ClassesList from './ClassesList'
 
 export default function Home() {
   return (
@@ -9,9 +10,9 @@ export default function Home() {
         Home page
       </h2>
       <h3>
-          Link Tests
+          Classes List
       </h3>
-      <ClassCard />
+      <ClassesList />
       <p>
         <Link to='/instructor/classes/new'>Instructor > Create Class</Link>
       </p>
