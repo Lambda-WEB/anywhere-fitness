@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 
 import {addClass} from "../../store/actions.js";
 
-const AddClass = (props) => {
+const AddClass = () => {
     const dispatch = useDispatch();
     // const classadd = useSelector(state => state.classes)
     const [ newClass, setNewClass] = useState({
