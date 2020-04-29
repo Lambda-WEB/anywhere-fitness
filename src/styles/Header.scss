@@ -1,47 +1,47 @@
 .app-header {
-  background-color: $primary-grey;
-  min-height: 8vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  font-size: calc(10px + 2vmin);
-  color: $react-link-color;
-
-  a {
-    text-decoration: none;
+    background-color: $primary-grey;
+    min-height: 8vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: calc(10px + 2vmin);
     color: $react-link-color;
+  
+    a {
+      text-decoration: none;
+      color: $react-link-color;
+    }
   }
-}
-
-nav.header-section ul {
-
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-
-  li {
-    list-style: none;
-    margin: 0 20px 0 0;
-    // border: 1px solid $react-background;
+  
+  nav.header-section ul {
+  
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+  
+    li {
+      list-style: none;
+      margin: 0 20px 0 0;
+      // border: 1px solid $react-background;
+    }
   }
-}
-
-// implement spinning React icon
-.app-logo-img {
-  height: 6vmin;
-  pointer-events: none;
-}
-@media (prefers-reduced-motion: no-preference) {
+  
+  // implement spinning React icon
   .app-logo-img {
-    animation: app-logo-spin infinite 20s linear;
+    height: 6vmin;
+    pointer-events: none;
   }
-}
-@keyframes app-logo-spin {
-  from {
-    transform: rotate(0deg);
+  @media (prefers-reduced-motion: no-preference) {
+    .app-logo-img {
+      animation: app-logo-spin infinite 20s linear;
+    }
   }
-  to {
-    transform: rotate(360deg);
+  @keyframes app-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
-}
