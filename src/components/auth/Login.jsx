@@ -18,7 +18,7 @@ export default function Login () {
     const login = e=> {
         e.preventDefault();
         console.log({user});
-        api.post('/auth/login', user)  // fixedUser
+        api.post('/auth/login', user)  
           .then(res => {
             console.log(res.data)
             localStorage.setItem('authToken', JSON.stringify(res.data.token))
@@ -29,7 +29,7 @@ export default function Login () {
           .catch(err => console.log({ err }))
       }
 
-    render() {
+    
         return (
             <div className="wrapper">
                 <div className="form-wrapper">
@@ -69,6 +69,6 @@ export default function Login () {
             </div>
         )
     }
-}
+
 
 export default Login
