@@ -24,6 +24,9 @@ export const account_failed = 'account-failed' // add to errors array
 export const add_class_start = "add_class_start";
 export const add_class_success = "add_class_success";
 export const add_class_failure = "add_class_failure";
+export const get_class_start = "get_class_start";
+export const get_class_success = "get_class_success";
+export const get_class_failure = "get_class_failure";
 
 export function addClass(classadd) {
     return dispatch => {
@@ -35,6 +38,20 @@ export function addClass(classadd) {
         })
         .catch(error => {
             dispatch({type: add_class_failure, payload: error})
+        })
+    }
+};
+
+export function getClass() {
+    return dispatch => {
+        dispatch({type: get_class_start});
+        axiosWithAuth()
+        .get('/classes')
+        .then(response => {
+            dispatch({type: get_class_success, payload: response})
+        })
+        .catch(error => {
+            dispatch({type: get_class_failure, payload: error})
         })
     }
 }

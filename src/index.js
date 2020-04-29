@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { createLogger } from 'redux-logger';
+import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk"
 // Redux Reducers
 import { appReducer } from './store/appReducer'
@@ -23,7 +24,7 @@ const rootReducer = combineReducers({
   classes: classesReducer
 })
 
-const store = createStore(rootReducer, applyMiddleware(logger, thunk));
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk, logger)));
 
 ReactDOM.render(
   <React.StrictMode>

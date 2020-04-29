@@ -25,11 +25,12 @@ export default function Login() {
         console.log({ user });
         api.post('/auth/login', user)
             .then(res => {
-                console.log(res.data)
+                console.log(res.data.id, res.data.instructor, res.data.email, "res.data.")
                 localStorage.setItem('authToken', JSON.stringify(res.data.token))
                 dispatch({ type: 'APP_LOGIN', payload: res.data.token })
-                dispatch({ type: 'ACCOUNT_UPDATE', payload: { user: { ...res.data } } })
-                history.push('/dashboard');
+                
+                dispatch({ type: 'ACCOUNT_UPDATE', payload: { user: res.data } })
+                // history.push('/dashboard');
             })
             .catch(err => console.log({ err }))
     }
