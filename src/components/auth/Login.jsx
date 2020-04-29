@@ -9,7 +9,7 @@ const defaultUser = {
     instructor: "0"
   }
 
-function Login () {
+export default function Login () {
     const api = useSelector(state => state.app.axios);
     const [user, setUser] = useState(defaultUser);
     const history = useHistory();
