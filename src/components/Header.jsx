@@ -1,9 +1,12 @@
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { Link, useHistory } from 'react-router-dom';
+
 import logo from '../assets/logo.svg';
-import { Link } from 'react-router-dom';
+// import * as act from '../store/actions'
 
-
-export default function Header(props) {
+export default function Header() {
+  const loggedIn = useSelector(state => state.app.loggedIn);
 
   return (
     <header className="app-header">
@@ -22,7 +25,8 @@ export default function Header(props) {
             <Link to='/classes'>Find Classes</Link>
           </li>
           <li>
-            {props.loggedIn ? (<Link to='/logout'>Logout</Link>) : (<Link to='/login'>Login</Link>)}
+            {/* {loggedIn ? (<a onClick={logoutHandler}>Logout</a>) : (<Link to='/login'>Login</Link>)} */}
+            {loggedIn ? (<Link to='/logout'>Logout</Link>) : (<Link to='/login'>Login</Link>)}
           </li>
         </ul>
       </nav>
