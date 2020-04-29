@@ -2,52 +2,46 @@ import React, { Component } from 'react';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 
 
-export class Login extends Component {
-    state ={
-        credentials:{
-            email: '',
-            password: '',
-            Isinstructor: '0'
-           
-        }
-    }
-
-    changeHandler = e => {
-        this.setState({
-            credentials: {
-                ...this.state.credentials,
-                [e.target.name]: e.target.value
-            }
-            
+export default function Login () {
+    const api = useSelector(state => state.app.axios);
+    const [user, setUser] = useState(defaultUser);
+    const history = useHistory();
+    const dispatch = useDispatch();
+    
+    function changeHandler(e) {
+      setUser({
+        ...user,
+        [e.target.name]: e.target.value,
         });
-        console.log(e.target.value)
     }
 
-    login = e => {
+    const login = e=> {
         e.preventDefault();
-        axiosWithAuth()
-        .post('/auth/login', this.state.credentials)
-        .then(res => {
+        console.log({user});
+        api.post('/auth/login', user)  // fixedUser
+          .then(res => {
             console.log(res.data)
-          localStorage.setItem('token', JSON.stringify(res.data.payload))
-          this.props.history.push('/protected');  
-        } )
-        .catch(err => console.log({ err }))
-    }
+            localStorage.setItem('authToken', JSON.stringify(res.data.token))
+            dispatch({type: 'APP_LOGIN', payload: res.data.token})
+            dispatch({type: 'ACCOUNT_UPDATE', payload: { user: res.data.saved } })
+            history.push('/');
+          })
+          .catch(err => console.log({ err }))
+      }
 
     render() {
         return (
             <div className="wrapper">
                 <div className="form-wrapper">
-                <form onSubmit={this.login}>
+                <form onSubmit={login}>
                   <h1>Login</h1>
                   <div className="email">
                     <label>Email</label>
                     <input
                     type="text"
                     name="email"
-                    value={this.state.credentials.email}
-                    onChange={this.changeHandler}
+                    value={user.email}
+                    onChange={changeHandler}
                     
                     />
                     </div>
@@ -56,13 +50,13 @@ export class Login extends Component {
                     <input
                         type="password"
                         name="password"
-                        value={this.state.credentials.password}
-                        onChange= {this.changeHandler}
+                        value={user.password}
+                        onChange= {changeHandler}
                     
                     />
                     </div>
                    
-                    <select className="select-css" value={this.state.credentials.Isinstructor} onChange={this.changeHandler}>
+                    <select className="select-css" value={user.instructor} onChange={this.changeHandler}>
                       <option value="0">Student</option>
                       <option value="1">Instructor</option>
 
