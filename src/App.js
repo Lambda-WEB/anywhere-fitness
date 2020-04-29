@@ -4,9 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 
 // Components
 import Header from './components/Header';
-import Signup from './components/Signup'
-import Login from './components/Login';
-import Logout from './components/Logout';
+import Signup from './components/auth/Signup'
+import Login from './components/auth/Login';
+import Logout from './components/auth/Logout';
 import AddClass from "./components/instructor/AddClass"
 import Home from './components/Home';
 import ClassesList from './components/ClassesList';
