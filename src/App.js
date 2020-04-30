@@ -77,7 +77,7 @@ function App() {
           </PrivateRoute> */}
           <Route path='/logout' component={Logout} >
           </Route>
-          <Route path='/' component={Home}>
+          <Route exact path='/' component={Home}>
           </Route>
 
         </Switch>

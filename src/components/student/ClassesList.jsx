@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ClassCard from './ClassCard'
 import { useSelector, useDispatch } from 'react-redux'
-import { getClasses } from '../../data/sample'
 import { arrayByPage } from '../../utils/helpers'
 
 export default function ClassesList() {
@@ -13,17 +12,11 @@ export default function ClassesList() {
   const [slice, setSlice] = useState([]);
   const pageSize = 20;
 
-
-  useEffect(() => {
-    // load classes and push into state
-    // dispatch({ type: 'CLASSES_FETCHING', payload: true })
-    dispatch({ type: 'CLASSES_LIST_UPDATE', payload: getClasses() })
-    // dispatch({ type: 'CLASSES_FETCHING', payload: false })
-  }, [])
   useEffect(() => {
     setMaxPages(Math.ceil(classes.length / pageSize));
     setSlice(arrayByPage(classes, pageSize, 1))
   }, [classes])
+
   useEffect(() => {
     setSlice(arrayByPage(classes, pageSize, pageNum))
   }, [pageNum])
@@ -32,22 +25,22 @@ export default function ClassesList() {
   return (
     <div className="container-fluid d-flex justify-content-center">
       <div className="row">
-        <div className="col-3">
+        <div className="col-md-3">
         </div>
-        <div className="col-3">
+        <div className="col-md-3">
         </div>
-        <div className="col-3">
+        <div className="col-md-3">
         </div>
-        <div className="col-1">
+        <div className="col-md-1">
         {(pageNum > 1) && (
           <a href='#' className='btn' onClick={() => {
             if (pageNum > 1) setPageNum(pageNum - 1)
           }}> ◀ Previous </a>
         )}
         </div>
-        <div className="col-1">
+        <div className="col-md-1">
         </div>
-        <div className="col-1">
+        <div className="col-md-1">
         {(pageNum < maxPages) && (
           <a href='#' className='btn' onClick={() => {
             if (pageNum < maxPages) setPageNum(pageNum + 1)
@@ -57,9 +50,8 @@ export default function ClassesList() {
       </div>{/* end of row */}
       <div className="row">
         {slice.map(item => { return (
-          <div className="col-md-6">
             <ClassCard key={item.id} classItem={item} />
-          </div>)}
+          )}
         )}
       </div>
     </div>
