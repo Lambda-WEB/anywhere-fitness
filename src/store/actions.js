@@ -42,11 +42,11 @@ export function addClass(classadd) {
     }
 };
 
-export function getClass() {
+export function getClass(id) {
     return dispatch => {
         dispatch({type: get_class_start});
         axiosWithAuth()
-        .get('/classes')
+        .get(`/classes/instructor/${id}/classes`)
         .then(response => {
             dispatch({type: get_class_success, payload: response})
         })

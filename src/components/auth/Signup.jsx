@@ -7,11 +7,6 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
 // import * as act from '../store/actions';
 
 const defaultUser = {
@@ -92,6 +87,7 @@ export default function Signup(props) {
   function submitHandler(e) {
     e.preventDefault();
     console.log({user});
+    dispatch({ type: 'APP_FETCHING', payload: true })
     api.post('/auth/register', user)  // fixedUser
       .then(res => {
         console.log(res.data)
@@ -101,7 +97,10 @@ export default function Signup(props) {
         history.push('/');
       })
       .catch(err => console.log({ err }))
-  }
+      .finally(() => {
+        dispatch({ type: 'APP_FETCHING', payload: false })
+    })
+}
 
   return (
     <Container component="main" maxWidth="xs">
@@ -139,19 +138,6 @@ export default function Signup(props) {
             <option value="0">Student</option>
             <option value="1">Instructor</option>
           </select>
-          {/* <FormControl component="fieldset">
-           <FormLabel component="legend" style={{color: "#000000"}}>Role</FormLabel>
-           <RadioGroup defaultValue="Student" aria-label="role"  name="customized-radios" value={user.instructor} onChange={changeHandler}>
-             <FormControlLabel 
-               value="0"
-               control={<Signup />}
-              label="Student" />
-            <FormControlLabel 
-              value="1" 
-              control={<Signup />}
-              label="Instructor" />
-           </RadioGroup>
-         </FormControl> */}
           <Button
             type="submit"
             fullWidth

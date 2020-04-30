@@ -1,4 +1,5 @@
-import * as act from './actions'
+// import * as act from './actions'
+// MANAGES THE STATE OF USER ACCOUNT AND PROFILE DATA
 
 const initialAccountState = {
   user: {
@@ -38,9 +39,9 @@ export function accountReducer(state = initialAccountState, action) {
         ...state,
         user: {
           ...state.user,
-          // id: payload.user.id,
+          id: action.payload.user.id || state.user.id,
           email: action.payload.user.email || state.user.email,
-          // isInstructor: payload.user.isInstructor,  // in case Role changes
+          instructor: action.payload.user.instructor || state.user.instructor,  // in case Role changes
           name: action.payload.user.name || state.user.name,
           zip: action.payload.user.zip || state.user.zip,
         }
