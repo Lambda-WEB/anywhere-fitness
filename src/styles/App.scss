@@ -1,18 +1,19 @@
 // file description
 // Color Palette
 $primary-color: #FFAB00;
-$secondary-color: #6190E4;
+$secondary-color: rgb(92, 92, 92);
 $primary-color-light: rgba($primary-color, 0.5);
 // $primary-color-light: #FDA77D;
 $primary-black: #1C1917;
 $primary-grey: #FAFBFE;
 $react-background: #282c34;
-$react-link-color: #61dafb;
+$react-link-color: #fbca61;
 
 // Typography
 
 .App {
   text-align: center;
+  font-family: 'Lato', sans-serif;
 }
 
 .app-link {
