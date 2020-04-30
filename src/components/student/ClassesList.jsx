@@ -57,9 +57,8 @@ export default function ClassesList() {
       </div>{/* end of row */}
       <div className="row">
         {slice.map(item => { return (
-          <div className="col-md-6">
             <ClassCard key={item.id} classItem={item} />
-          </div>)}
+          )}
         )}
       </div>
     </div>
