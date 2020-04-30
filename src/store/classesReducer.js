@@ -30,6 +30,7 @@ const initialClassesState = {
 
 export function classesReducer(state = initialClassesState, action) {
 
+
   switch (action.type) {
 
     case 'CLASSES_FETCHING':
@@ -48,3 +49,4 @@ export function classesReducer(state = initialClassesState, action) {
         return state;
     }
 }
+

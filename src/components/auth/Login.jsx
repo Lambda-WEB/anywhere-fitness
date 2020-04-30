@@ -31,12 +31,14 @@ export default function Login() {
                 dispatch({ type: 'APP_FETCHING', payload: true })
                 dispatch({ type: 'APP_LOGIN', payload: res.data.token })
                 
+
                 dispatch({ type: 'ACCOUNT_UPDATE', payload: { user: {
                     id: res.data.id,
                     email: res.data.email,
                     instructor: res.data.instructor
                 }
                  } })
+
                 history.push('/instructor/classes');
             })
             .catch(err => console.log({ err }))

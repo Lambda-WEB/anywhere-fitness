@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-
+import {useHistory} from "react-router-dom";
 import {addClass} from "../../store/actions.js";
 
 const AddClass = () => {
     const dispatch = useDispatch();
+    const history = useHistory()
     // const classadd = useSelector(state => state.classes)
     const [ newClass, setNewClass] = useState({
         name: '', // string
@@ -27,7 +28,8 @@ const AddClass = () => {
 
     const handleSubmit = e =>{
         e.preventDefault();
-        dispatch(addClass(newClass))
+        dispatch(addClass(newClass));
+        history.push('/instructor/classes')
     }
 
     return(
