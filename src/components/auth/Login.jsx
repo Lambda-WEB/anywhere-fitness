@@ -23,16 +23,21 @@ export default function Login() {
     const loginHandler = e => {
         e.preventDefault();
         console.log({ user });
+        dispatch({ type: 'APP_FETCHING', payload: true })
         api.post('/auth/login', user)
             .then(res => {
                 console.log(res.data.id, res.data.instructor, res.data.email, "res.data.")
                 localStorage.setItem('authToken', JSON.stringify(res.data.token))
+                dispatch({ type: 'APP_FETCHING', payload: true })
                 dispatch({ type: 'APP_LOGIN', payload: res.data.token })
                 
                 dispatch({ type: 'ACCOUNT_UPDATE', payload: { user: res.data } })
                 // history.push('/dashboard');
             })
             .catch(err => console.log({ err }))
+            .finally(() => {
+                dispatch({ type: 'APP_FETCHING', payload: false })
+            })
     }
 
     return (

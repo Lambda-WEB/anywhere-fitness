@@ -2,7 +2,7 @@ import * as act from './actions'
 
 
 const initialClassesState = {
-    classes: [],
+    list: [],
     class:{
       name: '', // string
       type: '', // class_type

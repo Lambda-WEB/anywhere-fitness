@@ -10,11 +10,17 @@ export default function ClassesList() {
   return (
     <div className="container-fluid d-flex justify-content-center">
       <div className="row">
-        {classes.map(item => (
+      <div className="col-md-6">
+            <ClassCard  />
+          </div>
+          <div className="col-md-6">
+            <ClassCard  />
+          </div>
+        {/* {classes.map(item => (
           <div className="col-md-6">
             <ClassCard fitclass={item} />
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   )
