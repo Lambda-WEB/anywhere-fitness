@@ -36,6 +36,7 @@ const initialClassesState = {
 
 export function classesReducer(state = initialClassesState, action) {
 
+
   switch (action.type) {
 
     case 'CLASSES_FETCHING':
@@ -78,6 +79,7 @@ export function classesReducer(state = initialClassesState, action) {
     }
 }
 
+<<<<<<< HEAD
 function narrowClassList(list, filters, search) {
   return searchClassList(filterClassList(list, filters), search)
 }
@@ -114,3 +116,5 @@ function searchClassList(list, search) {
   console.log('search(end): ', result.length)
   return result;
 }
+=======
+>>>>>>> a50ede9e43dde4f0e0bf7f10fc5e4741a7b9cb70

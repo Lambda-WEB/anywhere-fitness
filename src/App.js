@@ -11,12 +11,14 @@ import Login from './components/auth/Login';
 import Logout from './components/auth/Logout';
 
 import Home from './components/Home';
+
 // Student
 import ClassesList from './components/student/ClassesList';
 import Dashboard from './components/student/Dashboard';
 // Instructor
 import AddClass from "./components/instructor/AddClass"
 import InstrClass from "./components/instructor/InstrClass"
+
 
 // import * as act from './store/actions'
 // import newAxios from './utils/axiosUtils';
@@ -55,12 +57,14 @@ function App() {
           <Route path='/signup' component={Signup}>
           </Route>
 
+
           <InstructorRoute path='/instructor/classes/edit/:id'>
           </InstructorRoute>
           <InstructorRoute path='/instructor/classes/new' component={AddClass}>
           </InstructorRoute>
           <InstructorRoute path='/instructor/classes' component={InstrClass}>
           </InstructorRoute>
+
 
           <PrivateRoute path='/profile/edit'>
           </PrivateRoute>
