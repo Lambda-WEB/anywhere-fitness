@@ -21,6 +21,8 @@ export default function ClassSearch() {
           placeholder='Search for Classes or Instructors' onChange={(e) => setSearchVal(e.target.value)} />
       </label>
 
+      <button className="btn btn-outline-success">Apply</button>
+
     </form>
 
     </>

@@ -83,20 +83,34 @@ function narrowClassList(list, filters, search) {
 }
 
 function filterClassList(list, filters) {
-  return list.filter(item => {
+  console.log('filter(start): ', list.length)
+  const result = list.filter(item => {
+    let take = true;
     Object.keys(filters).forEach(f => {
-      if (filters[f] == true)
-        return (item[f] == filters[f])
+      // console.log('filters[f]: ', f, filters[f])
+      if (!!filters[f] == true) {
+        if (item[f] == filters[f]) take = (take && true);
+        else take = (take && false);
+      }
+      else take = (take && true);
     })
+    // console.log('filters[f] == true: PASS')
+    return take;
   })
+  console.log('filter(end): ', result.length)
+  return result;
 }
 
 function searchClassList(list, search) {
+  console.log('search(start): ', list.length)
   const searchArr = search.split(' ');
-  return list.filter(item => {
+  console.log('search(arr): ', searchArr)
+  const result = list.filter(item => {
     return (
       item.name.includes(searchArr) ||
       item.instructorName.first_name.includes(searchArr) ||
       item.instructorName.last_name.includes(searchArr))
   })
+  console.log('search(end): ', result.length)
+  return result;
 }

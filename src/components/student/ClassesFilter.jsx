@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 const classTypes = [
+  "",
   "Weight Lifting",
   "Boxing",
   "Bootcamp",
@@ -45,18 +46,19 @@ export default function ClassesFilter() {
 
       <label htmlFor="type">Class Type
         <select name="type" id="type" className='' 
-          value={filter.type} 
+          value={filters.type} 
           onChange={changeHandler}>
-          {classTypes.forEach(item => <option value={item}>{item}</option>)}
+          {classTypes.map(item => <option value={item}>{item}</option>)}
         </select>
       </label>
       <label htmlFor="intensity">Intensity
         <select name='intensity' id='intensity' className='' 
-          value={filter.intensity} 
+          value={filters.intensity} 
           onChange={changeHandler}>
-          <option value='expert'>Expert</option>
-          <option value="intermediate">Intermediate</option>
-          <option value="beginner">Beginner</option>
+          <option value=''>All</option>
+          <option value='expert'>expert</option>
+          <option value="intermediate">intermediate</option>
+          <option value="beginner">beginner</option>
         </select>
       </label>
       <label htmlFor="location">Location
@@ -67,13 +69,13 @@ export default function ClassesFilter() {
         <input name='start_date' type="date" id='start_date' className='' onChange={changeHandler} />
       </label>
       <label htmlFor="duration">Duration (mins)
-        <input name='duration' type="number" id='duration' className='' onChange={changeHandler} />
+        <input name='duration' type="number" min='15' id='duration' className='' onChange={changeHandler} />
       </label>
       <label htmlFor="attendees">Current Attendees
-        <input name='attendees' type="number" id='attendees' className='' onChange={changeHandler} />
+        <input name='attendees' type="number" min='0' id='attendees' className='' onChange={changeHandler} />
       </label>
       <label htmlFor="max_attendees">Class Size
-        <input name='max_attendees' type="number" id='max_attendees' className='' onChange={changeHandler} />
+        <input name='max_attendees' type="number" min='1' id='max_attendees' className='' onChange={changeHandler} />
       </label>
       {/* <label htmlFor="instructor">Instructor Name
         <input name='instructor' type="text" id='instructor' className='' 
