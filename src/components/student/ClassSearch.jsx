@@ -1,10 +1,15 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 
 
 export default function ClassSearch() {
+  const appliedSearch = useSelector(state => state.classes.search);
   const dispatch = useDispatch();
   const [searchVal, setSearchVal] = useState('');
+
+  useEffect(() => {
+    setSearchVal(appliedSearch);
+  },[appliedSearch])
 
   function submitHandler(e) {
     e.preventDefault();
@@ -12,7 +17,7 @@ export default function ClassSearch() {
   }
   function resetHandler(e) {
     e.preventDefault();
-    setSearchVal('');
+    // setSearchVal('');
     dispatch({ type: 'CLASSES_LIST_RESET' })
   }
 

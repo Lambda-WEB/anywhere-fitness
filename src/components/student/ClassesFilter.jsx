@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 const classTypes = [
@@ -23,9 +23,13 @@ const initialFilterState = {
 }
 
 export default function ClassesFilter() {
-  // const appliedFilters = useSelector(state => state.classes.filters)
+  const appliedFilters = useSelector(state => state.classes.filters)
   const dispatch = useDispatch();
   const [filters, setFilters] = useState(initialFilterState)
+
+  useEffect(() => {
+    setFilters(appliedFilters)
+  },[appliedFilters])
 
   function changeHandler(e) {
     // set local state to value
@@ -37,6 +41,10 @@ export default function ClassesFilter() {
   function submitHandler(e) {
     e.preventDefault();
     dispatch({ type: 'CLASSES_FILTERS_UPDATE', payload: filters })
+  }
+  function resetHandler(e) {
+    e.preventDefault();
+    dispatch({ type: 'CLASSES_LIST_RESET' })
   }
 
   return (
@@ -83,6 +91,7 @@ export default function ClassesFilter() {
       </label> */}
 
       <button className="btn btn-outline-success">Apply</button>
+      <button className="btn btn-outline-success" onClick={resetHandler} >Reset</button>
 
     </form>
 
