@@ -48,22 +48,18 @@ const useStyles = makeStyles((theme) => ({
     width: 16,
     height: 16,
     boxShadow: 'inset 0 0 0 1px rgba(16,22,26,.2), inset 0 -1px 0 rgba(16,22,26,.1)',
-    backgroundColor: '#f5f8fa',
+    backgroundColor: '#000000',
     backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0))',
     '$root.Mui-focusVisible &': {
       outline: '2px auto rgba(19,124,189,.6)',
       outlineOffset: 2,
     },
     'input:hover ~ &': {
-      backgroundColor: '#ebf1f5',
-    },
-    'input:disabled ~ &': {
-      boxShadow: 'none',
-      background: 'rgba(206,217,224,.5)',
+      backgroundColor: '#FFA500',
     },
   },
   checkedIcon: {
-    backgroundColor: '#137cbd',
+    backgroundColor: '#000000',
     backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))',
     '&:before': {
       display: 'block',
@@ -73,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
       content: '""',
     },
     'input:hover ~ &': {
-      backgroundColor: '#106ba3',
+      backgroundColor: '#FFA500',
     },
   }
 }));
@@ -139,7 +135,11 @@ export default function Signup(props) {
             value={user.password}
             onChange={changeHandler}
           />
-          <FormControl component="fieldset">
+          <select className="select-css" name="instructor" value={user.instructor} onChange={changeHandler}>
+            <option value="0">Student</option>
+            <option value="1">Instructor</option>
+          </select>
+          {/* <FormControl component="fieldset">
            <FormLabel component="legend" style={{color: "#000000"}}>Role</FormLabel>
            <RadioGroup defaultValue="Student" aria-label="role"  name="customized-radios" value={user.instructor} onChange={changeHandler}>
              <FormControlLabel 
@@ -151,7 +151,7 @@ export default function Signup(props) {
               control={<Signup />}
               label="Instructor" />
            </RadioGroup>
-         </FormControl>
+         </FormControl> */}
           <Button
             type="submit"
             fullWidth

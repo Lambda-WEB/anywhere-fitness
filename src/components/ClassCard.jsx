@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function ClassCard() {
   const [fitClass, setFitClass] = useState();
@@ -13,7 +14,9 @@ export default function ClassCard() {
         <p className="card-text text-secondary">
           Nec ipsum libris dissentiunt et, qui aperiri corpora accusata te! Ne integre nostrud consectetuer pro. Ei eam quodsi saperet voluptatibus. Simul feugiat efficiantur eam ad, case graece theophrastus sed at?
         </p>
-        <a href="#" className="btn btn-outline-success">Register for Class</a>
+        <Link to='/Signup'>
+        <button className="btn btn-outline-success">Register for Class</button>
+        </Link>
       </div>
     </div>
   )

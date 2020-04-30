@@ -15,8 +15,11 @@ export default function Header() {
           <img src={logos} className="app-logo-img" alt="logo" />
         </div>
       </Link>
+     
       <div className="header-section">
+        <a href='https://agitated-hawking-1730f4.netlify.app/'>
         <span className="header-title"><strong>anywhere(Fitness)</strong></span>
+        </a>
       </div>
       <nav className='header-section'>
         <ul>
