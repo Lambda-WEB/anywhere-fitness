@@ -1,21 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ClassCard from './ClassCard'
 import ClassesList from './ClassesList'
 
-export default function Home() {
+export default function Dashboard() {
   return (
     <div>
       <h2>
-        Home page
+        User Dashboard
       </h2>
       <h3>
-          Classes List
+          Search for Classes
       </h3>
       <ClassesList />
-      <p>
-        <Link to='/instructor/classes/new'>Instructor > Create Class</Link>
-      </p>
     </div>
   )
 }
