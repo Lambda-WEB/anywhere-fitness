@@ -35,7 +35,7 @@ export default function Login() {
                     instructor: res.data.instructor
                 }
                  } })
-                // history.push('/dashboard');
+                history.push('/instructor/classes');
             })
             .catch(err => console.log({ err }))
     }
