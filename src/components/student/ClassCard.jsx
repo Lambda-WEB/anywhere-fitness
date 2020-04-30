@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 
 
-export default function ClassCard() {
-  const [fitClass, setFitClass] = useState();
+export default function ClassCard(props) {
+  // const [fitClass, setFitClass] = useState();
   const dispatch = useDispatch();
 
   return (
@@ -12,10 +12,19 @@ export default function ClassCard() {
         <img src='' alt='' className='card-img-top' />
       </div>
       <div className="card-body text-dark">
-        <h4 className="card-title">Yoga Class</h4>
+        <h4 className="card-title">{props.classItem.type}</h4>
+        <h5 className="card-text text-primary">{props.classItem.intensity}</h5>
+        <div className="card-text text-secondary">
+          <h6>by {props.classItem.instructorName.first_name} {props.classItem.instructorName.last_name}</h6>
+        </div>
         <p className="card-text text-secondary">
-          Nec ipsum libris dissentiunt et, qui aperiri corpora accusata te! Ne integre nostrud consectetuer pro. Ei eam quodsi saperet voluptatibus. Simul feugiat efficiantur eam ad, case graece theophrastus sed at?
+          {props.classItem.name}
         </p>
+        <div className="card-text text-primary">
+          <span>On: {props.classItem.start_date} </span>
+          <span>At: {props.classItem.start_time} </span>
+          <span>For: {props.classItem.duration}min </span>
+        </div>
         <a href="#" className="btn btn-outline-success">Register for Class</a>
       </div>
     </div>

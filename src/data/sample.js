@@ -1,7 +1,8 @@
 export function getClasses(pageSize, pageNum) {
-  const page = classes.slice((pageNum-1)*pageSize, pageNum*pageSize);
+  const page = (pageSize && pageNum) ? classes.slice((pageNum-1)*pageSize, pageNum*pageSize) : classes;
   return page.map(item => {
-    return {...item, instructorName: instructors.find(i => i.id === item.instructorId)}
+    const instructor = instructors.find(i => i.id === item.instructorId);
+    return {...item, instructorName: { first_name: instructor.first_name, last_name: instructor.last_name } }
   })
 }
 
