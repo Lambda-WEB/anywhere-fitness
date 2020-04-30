@@ -1,4 +1,5 @@
-import * as act from './actions'
+// import * as act from './actions'
+// MANAGES THE STATE OF USER ACCOUNT AND PROFILE DATA
 
 const initialAccountState = {
   user: {

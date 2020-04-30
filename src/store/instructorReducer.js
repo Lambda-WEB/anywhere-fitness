@@ -1,12 +1,12 @@
 import * as act from './actions'
-
+// MANAGES THE STATE OF INSTRUCTOR-SPECIFIC DATA
 
 const initialInstructorState = {
+  classes: [],
+  isFetching: false
   
 }
   
-
-
 export function instructorReducer(state = initialInstructorState, action) {
 
 switch (action.type) {

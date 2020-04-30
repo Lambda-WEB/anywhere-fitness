@@ -26,6 +26,7 @@ export default function Signup() {
   function submitHandler(e) {
     e.preventDefault();
     console.log({user});
+    dispatch({ type: 'APP_FETCHING', payload: true })
     api.post('/auth/register', user)  // fixedUser
       .then(res => {
         console.log(res.data)
@@ -35,7 +36,10 @@ export default function Signup() {
         history.push('/');
       })
       .catch(err => console.log({ err }))
-  }
+      .finally(() => {
+        dispatch({ type: 'APP_FETCHING', payload: false })
+    })
+}
 
   return (
     <div className="wrapper">
