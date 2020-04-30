@@ -12,7 +12,8 @@ import AddClass from "./components/instructor/AddClass"
 import Home from './components/Home';
 import ClassesList from './components/ClassesList';
 import InstructorRoute from './routes/InstructorRoute';
-import PrivateRoute from './routes/PrivateRoute'
+import PrivateRoute from './routes/PrivateRoute';
+import InstrClass from "./components/instructor/InstrClass";
 
 // import * as act from './store/actions'
 // import newAxios from './utils/axiosUtils';
@@ -51,12 +52,12 @@ function App() {
           <Route path='/signup' component={Signup}>
           </Route>
 
-          <InstructorRoute path='/instructor/classes/edit/:id'>
-          </InstructorRoute>
-          <InstructorRoute path='/instructor/classes/new' component={AddClass}>
-          </InstructorRoute>
-          <InstructorRoute path='/instructor/classes'>
-          </InstructorRoute>
+          <Route path='/instructor/classes/edit/:id'>
+          </Route>
+          <Route path='/instructor/classes/new' component={AddClass}>
+          </Route>
+          <Route path='/instructor/classes' component={InstrClass}>
+          </Route>
 
           <PrivateRoute path='/profile/edit'>
           </PrivateRoute>

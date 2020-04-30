@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
   app: appReducer,
   account: accountReducer, 
   instructor: instructorReducer, 
-  classes: classesReducer
+  // classes: classesReducer
 })
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk, logger)));

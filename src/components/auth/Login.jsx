@@ -30,7 +30,7 @@ export default function Login() {
                 dispatch({ type: 'APP_LOGIN', payload: res.data.token })
                 
                 dispatch({ type: 'ACCOUNT_UPDATE', payload: { user: res.data } })
-                // history.push('/dashboard');
+                history.push('/instructor/classes');
             })
             .catch(err => console.log({ err }))
     }
