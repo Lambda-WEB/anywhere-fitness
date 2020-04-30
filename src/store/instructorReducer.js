@@ -42,6 +42,7 @@ export function instructorReducer(state = initialInstructorState, action) {
         isLoading: true
     };
     case act.get_class_start:
+
       return{
         ...state,
         isLoading: true
