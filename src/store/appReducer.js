@@ -1,4 +1,5 @@
 // import * as act from './actions'
+// MANAGES THE STATE OF GENERAL, SHARED APP SETTINGS
 import newAxios from '../utils/axiosUtils'
 
 const initialAppState = {

@@ -15,6 +15,7 @@ import Home from './components/Home';
 import ClassesList from './components/student/ClassesList';
 // Instructor
 import AddClass from "./components/instructor/AddClass"
+import InstrClass from "./components/instructor/InstrClass"
 
 // import * as act from './store/actions'
 // import newAxios from './utils/axiosUtils';
@@ -57,7 +58,7 @@ function App() {
           </InstructorRoute>
           <InstructorRoute path='/instructor/classes/new' component={AddClass}>
           </InstructorRoute>
-          <InstructorRoute path='/instructor/classes'>
+          <InstructorRoute path='/instructor/classes' component={InstrClass}>
           </InstructorRoute>
 
           <PrivateRoute path='/profile/edit'>
