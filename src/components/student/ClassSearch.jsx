@@ -10,6 +10,11 @@ export default function ClassSearch() {
     e.preventDefault();
     dispatch({ type: 'CLASSES_SEARCH_UPDATE', payload: searchVal })
   }
+  function resetHandler(e) {
+    e.preventDefault();
+    setSearchVal('');
+    dispatch({ type: 'CLASSES_LIST_RESET' })
+  }
 
   return (
     <>
@@ -18,10 +23,12 @@ export default function ClassSearch() {
 
       <label htmlFor="search">
         <input name='search' type="search" id='search' className='' 
-          placeholder='Search for Classes or Instructors' onChange={(e) => setSearchVal(e.target.value)} />
+          placeholder='Search for Classes or Instructors' value={searchVal}
+          onChange={(e) => setSearchVal(e.target.value)} />
       </label>
 
       <button className="btn btn-outline-success">Apply</button>
+      <button className="btn btn-outline-success" onClick={resetHandler} >Reset</button>
 
     </form>
 

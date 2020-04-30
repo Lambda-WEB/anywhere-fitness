@@ -107,9 +107,9 @@ function searchClassList(list, search) {
   console.log('search(arr): ', searchArr)
   const result = list.filter(item => {
     return (
-      item.name.includes(searchArr) ||
-      item.instructorName.first_name.includes(searchArr) ||
-      item.instructorName.last_name.includes(searchArr))
+      item.name.toLowerCase().includes(searchArr) ||
+      item.instructorName.first_name.toLowerCase().includes(searchArr) ||
+      item.instructorName.last_name.toLowerCase().includes(searchArr))
   })
   console.log('search(end): ', result.length)
   return result;
