@@ -1,7 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ClassCard from './ClassCard'
-import ClassesList from './ClassesList'
 
 export default function Home() {
   return (
@@ -10,12 +8,22 @@ export default function Home() {
         Home page
       </h2>
       <h3>
-          Classes List
+        Route Tests
       </h3>
-      <ClassesList />
-      <p>
-        <Link to='/instructor/classes/new'>Instructor > Create Class</Link>
-      </p>
+      <ul>
+        <li>
+        <Link to='/instructor/classes/new'>Instructor - Create Class</Link>
+        </li>
+        <li>
+        <Link to='/instructor/classes/'>Instructor - View Classes</Link>
+        </li>
+        <li>
+        <Link to='/dashboard'>User - Dashboard</Link>
+        </li>
+        {/* <li>
+        <Link to='/classes'>User - View/Search Classes</Link>
+        </li> */}
+      </ul>
     </div>
   )
 }

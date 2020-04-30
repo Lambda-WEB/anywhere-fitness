@@ -1,13 +1,17 @@
 import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
+import {Link} from "react-router-dom";
+
 
 import {getClass} from "../../store/actions.js";
 
 const InstrClass = () => {
     const dispatch = useDispatch();
+
     const classes = useSelector(state => state.instructor.class);
     const id = useSelector(state => state.account.user.id)
+
     console.log(classes)
 
     useEffect(() => {
@@ -16,6 +20,7 @@ const InstrClass = () => {
 
     return(
         <div>
+
         <Link to="/instructor/classes/new">Add New Class</Link>
         {classes && classes.length > 0 ? 
         <div>
@@ -29,6 +34,7 @@ const InstrClass = () => {
         </div>
             :
             <p>You currently do not have any classes scheduled</p>}
+
         </div>
     )
    

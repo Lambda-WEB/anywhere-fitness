@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
-
-
+// Custom Routes
+import InstructorRoute from './routes/InstructorRoute';
+import PrivateRoute from './routes/PrivateRoute'
 // Components
 import Header from './components/Header';
 import Signup from './components/auth/Signup'
 import Login from './components/auth/Login';
 import Logout from './components/auth/Logout';
-import AddClass from "./components/instructor/AddClass"
+
 import Home from './components/Home';
-import ClassesList from './components/ClassesList';
-import InstructorRoute from './routes/InstructorRoute';
-import PrivateRoute from './routes/PrivateRoute';
-import InstrClass from "./components/instructor/InstrClass";
+
+// Student
+import ClassesList from './components/student/ClassesList';
+import Dashboard from './components/student/Dashboard';
+// Instructor
+import AddClass from "./components/instructor/AddClass"
+import InstrClass from "./components/instructor/InstrClass"
+
 
 // import * as act from './store/actions'
 // import newAxios from './utils/axiosUtils';
@@ -52,22 +57,24 @@ function App() {
           <Route path='/signup' component={Signup}>
           </Route>
 
-          <Route path='/instructor/classes/edit/:id'>
-          </Route>
-          <Route path='/instructor/classes/new' component={AddClass}>
-          </Route>
-          <Route path='/instructor/classes' component={InstrClass}>
-          </Route>
+
+          <InstructorRoute path='/instructor/classes/edit/:id'>
+          </InstructorRoute>
+          <InstructorRoute path='/instructor/classes/new' component={AddClass}>
+          </InstructorRoute>
+          <InstructorRoute path='/instructor/classes' component={InstrClass}>
+          </InstructorRoute>
+
 
           <PrivateRoute path='/profile/edit'>
           </PrivateRoute>
           <PrivateRoute path='/profile'>
           </PrivateRoute>
-          <PrivateRoute path='/dashboard'>
+          <PrivateRoute path='/dashboard' component={Dashboard}>
           </PrivateRoute>
 
-          <PrivateRoute path='/classes' component={ClassesList}>
-          </PrivateRoute>
+          {/* <PrivateRoute path='/classes' component={ClassesList}>
+          </PrivateRoute> */}
           <Route path='/logout' component={Logout} >
           </Route>
           <Route path='/' component={Home}>
