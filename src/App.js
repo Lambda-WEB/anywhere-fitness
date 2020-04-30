@@ -46,7 +46,7 @@ function App() {
 
       <section>
         <Switch>
-          <Route path='/login' component={Login} >
+          <Route exact path='/login' component={Login} >
           </Route>
           <Route path='/signup' component={Signup}>
           </Route>
@@ -69,7 +69,7 @@ function App() {
           </PrivateRoute>
           <Route path='/logout' component={Logout} >
           </Route>
-          <Route path='/' component={Home}>
+          <Route exact path='/' component={Home}>
           </Route>
 
         </Switch>
