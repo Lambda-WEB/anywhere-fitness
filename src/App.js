@@ -13,6 +13,7 @@ import Logout from './components/auth/Logout';
 import Home from './components/Home';
 // Student
 import ClassesList from './components/student/ClassesList';
+import Dashboard from './components/student/Dashboard';
 // Instructor
 import AddClass from "./components/instructor/AddClass"
 import InstrClass from "./components/instructor/InstrClass"
@@ -65,11 +66,11 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path='/profile'>
           </PrivateRoute>
-          <PrivateRoute path='/dashboard'>
+          <PrivateRoute path='/dashboard' component={Dashboard}>
           </PrivateRoute>
 
-          <PrivateRoute path='/classes' component={ClassesList}>
-          </PrivateRoute>
+          {/* <PrivateRoute path='/classes' component={ClassesList}>
+          </PrivateRoute> */}
           <Route path='/logout' component={Logout} >
           </Route>
           <Route path='/' component={Home}>

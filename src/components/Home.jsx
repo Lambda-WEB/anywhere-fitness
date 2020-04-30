@@ -8,7 +8,7 @@ export default function Home() {
         Home page
       </h2>
       <h3>
-          Route Tests
+        Route Tests
       </h3>
       <ul>
         <li>
@@ -18,11 +18,11 @@ export default function Home() {
         <Link to='/instructor/classes/'>Instructor - View Classes</Link>
         </li>
         <li>
-        <Link to='/dashboard'>User - View Registered Class</Link>
+        <Link to='/dashboard'>User - Dashboard</Link>
         </li>
-        <li>
+        {/* <li>
         <Link to='/classes'>User - View/Search Classes</Link>
-        </li>
+        </li> */}
       </ul>
     </div>
   )

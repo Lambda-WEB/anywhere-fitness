@@ -10,7 +10,7 @@ import thunk from "redux-thunk"
 import { appReducer } from './store/appReducer'
 import { accountReducer } from './store/accountReducer';
 import { instructorReducer } from './store/instructorReducer';
-// import { classesReducer } from './store/classesReducer';
+import { classesReducer } from './store/classesReducer';
 // Components
 import App from './App';
 
@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
   app: appReducer,
   account: accountReducer, 
   instructor: instructorReducer, 
-  // classes: classesReducer
+  classes: classesReducer
 })
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk, logger)));
