@@ -44,7 +44,7 @@ export default function ClassesFilter() {
   }
   function resetHandler(e) {
     e.preventDefault();
-    dispatch({ type: 'CLASSES_LIST_RESET' })
+    dispatch({ type: 'CLASSES_LIST_FILTERS_RESET' })
   }
 
   return (
