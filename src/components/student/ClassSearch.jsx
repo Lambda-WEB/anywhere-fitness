@@ -9,7 +9,7 @@ export default function ClassSearch() {
 
   useEffect(() => {
     setSearchVal(appliedSearch);
-  },[appliedSearch])
+  }, [appliedSearch])
 
   function submitHandler(e) {
     e.preventDefault();
@@ -17,26 +17,26 @@ export default function ClassSearch() {
   }
   function resetHandler(e) {
     e.preventDefault();
-    // setSearchVal('');
-    dispatch({ type: 'CLASSES_LIST_RESET' })
+    setSearchVal('');
+    dispatch({ type: 'CLASSES_LIST_SEARCH_RESET' })
   }
 
   return (
     <>
+      <form onSubmit={submitHandler}>
+        <div className="form-group">
+          <label htmlFor="search">
+            <input name='search' type="search" id='search' className='form-control'
+              placeholder='Search for Classes or Instructors' value={searchVal}
+              onChange={(e) => setSearchVal(e.target.value)} />
+          </label>
 
-    <form onSubmit={submitHandler} >
-
-      <label htmlFor="search">
-        <input name='search' type="search" id='search' className='' 
-          placeholder='Search for Classes or Instructors' value={searchVal}
-          onChange={(e) => setSearchVal(e.target.value)} />
-      </label>
-
-      <button className="btn btn-outline-success">Apply</button>
-      <button className="btn btn-outline-success" onClick={resetHandler} >Reset</button>
-
-    </form>
-
+          <div className="btn-group ml-2 mr-2">
+            <button className="btn btn-info mr-2">Search</button>
+            <button className="btn btn-outline-info"  onClick={resetHandler} >Clear</button>
+          </div>
+        </div>
+      </form>
     </>
   )
 }

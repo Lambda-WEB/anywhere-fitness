@@ -7,9 +7,9 @@ import ClassesFilter from './ClassesFilter'
 // dummy data
 import { getClasses } from '../../data/sample'
 
-export default function Dashboard() {
+export default function Profile() {
   const dispatch = useDispatch()
-  const classes = useSelector(state => state.classes.list)
+  const classes = useSelector(state => state.account.registered_classes)
 
   useEffect(() => {
     // load classes and push into state
@@ -18,27 +18,21 @@ export default function Dashboard() {
     // dispatch({ type: 'CLASSES_FETCHING', payload: false })
   }, [])
 
-  function registerClass(id) {
-    dispatch({ type: 'ACCOUNT_CLASS_REGISTER', payload: id })
+  function deleteClass(id) {
+    dispatch({ type: 'ACCOUNT_CLASS_DELETE', payload: id })
   }
 
   return (
     <div>
       <h2>
-        User Dashboard
+        User Profile
       </h2>
       <h3>
-          Search for Classes
+          Manage my Classes
       </h3>
       <section>
         <div>
-          <ClassSearch />
-        </div>
-        <div>
-          <ClassesFilter />
-        </div>
-        <div>
-          <ClassesList classes={classes} registerClass={registerClass} />
+          <ClassesList classes={classes} deleteClass={deleteClass} />
         </div>
       </section>
     </div>
